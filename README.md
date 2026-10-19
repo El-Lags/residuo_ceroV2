@@ -4,8 +4,8 @@ App web que clasifica la foto de un residuo (cartón, vidrio, metal, papel, plá
 
 **Proyecto grupal · Certamen · IA Generativa para la Gestión Industrial · UDD**
 
-🔗 **App publicada:** https://residuocero.streamlit.app/
-📦 **Repositorio:** https://github.com/El-Lags/residuo_cero
+🔗 **App publicada:** https://residuocerov2.streamlit.app/
+📦 **Repositorio:** https://github.com/El-Lags/residuo_ceroV2
 
 ## Integrantes
 - Felipe Alonso
