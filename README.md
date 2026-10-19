@@ -137,9 +137,16 @@ En Streamlit Cloud la clave se guarda en **Advanced settings → Secrets** como 
 
 - **IA generativa en la aplicación:** Google Gemini se utiliza para generar recomendaciones textuales a partir de la clase predicha y su nivel de confianza. La imagen no es enviada al modelo.
 
-- **Apoyo durante el desarrollo:** Se utilizaron herramientas de asistencia de programación para apoyar tareas puntuales de implementación, revisión de código y documentación durante la etapa final del proyecto.
+- **Asistente de programación (Claude Code, de Anthropic):** se usó durante el desarrollo como apoyo, no como reemplazo del trabajo del equipo. Concretamente ayudó con:
+  - escribir y ordenar el código del notebook de entrenamiento y de `app.py` (interfaz, estilos, caché de recomendaciones por imagen);
+  - preparar los scripts de la carpeta `pruebas/` y detectar que el dataset de internet repetía fotos de TrashNet, lo que obligó a eliminar duplicados antes de dividir los datos;
+  - redactar y ordenar partes del README y de la presentación a partir de las métricas obtenidas.
 
-- **Entrenamiento y evaluación:** El entrenamiento de los modelos y el cálculo de las métricas se realizaron en Google Colab.
+- **Responsabilidades y decisiones del equipo:** definir el problema y el alcance, elegir el nombre del proyecto, ejecutar los entrenamientos en Google Colab (GPU), probar la app con fotos propias (latas, madera, zapatos), decidir qué cambios mantener y cuáles descartar (por ejemplo, quitar la función de mapa y no usar una regla de confianza que empeoraba la experiencia), revisar las métricas y las limitaciones que se declaran, y publicar el repositorio y la aplicación.
+
+- **Verificación:** las cifras de este README salen de las salidas ejecutadas del notebook (`notebooks/entrenamiento.ipynb`), `modelo/metricas.json` y los scripts de `pruebas/`. Las recomendaciones de Gemini no se evaluaron de forma cuantitativa.
+
+- **Entrenamiento y evaluación:** el entrenamiento de los modelos y el cálculo de las métricas se realizaron en Google Colab.
 
 ## Consideraciones éticas
 - Prototipo **educativo**: no reemplaza las indicaciones de la municipalidad ni de un punto limpio.
