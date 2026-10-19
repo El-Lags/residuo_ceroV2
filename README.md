@@ -23,9 +23,9 @@ El modelo se entrena con **tres fuentes** y el test se mide **por fuente**, para
 
 | Fuente | Qué aporta | Fotos usadas | Licencia |
 |---|---|---|---|
-| [TrashNet](https://huggingface.co/datasets/garythung/trashnet) (Thung y Yang, Stanford, 2016), archivo `dataset-resized.zip` | 6 clases de residuos, un objeto sobre fondo liso | 2.524 (de 2.527; se quitaron 3 copias exactas) | MIT |
+| [TrashNet](https://huggingface.co/datasets/garythung/trashnet) (Thung y Yang, Stanford, 2016; copia publicada en Hugging Face por `garythung`), archivo `dataset-resized.zip` | 6 clases de residuos, un objeto sobre fondo liso | 2.524 (de 2.527; se quitaron 3 copias exactas) | MIT |
 | [Fotos de internet](https://huggingface.co/datasets/UdaraChamidu/Garbage-Classification-with-12-classes) (12 carpetas, 15.520 fotos) | latas, botellas, cartón, papel, plástico, vidrio, basura, restos orgánicos, zapatos, ropa y pilas, con fondos y encuadres variados | 5.087 | no declarada; solo uso educativo |
-| [ImageNet-1k](https://huggingface.co/datasets/benjamin-paine/imagenet-1k-256x256) (split de validación) | 50 categorías de objetos cotidianos para `other`: calzado, mochilas, electrónicos, muebles, animales, vehículos y paisajes | 250 | licencia «other»: términos propios de ImageNet (investigación y educación sin fines comerciales) |
+| [ImageNet-1k](https://huggingface.co/datasets/benjamin-paine/imagenet-1k-256x256) (Deng et al., 2009; copia con las fotos reducidas a 256×256 publicada en Hugging Face por `benjamin-paine`; split de validación) | 50 categorías de objetos cotidianos para `other`: calzado, mochilas, electrónicos, muebles, animales, vehículos y paisajes | 250 | licencia «other»: términos propios de ImageNet (investigación y educación sin fines comerciales) |
 
 - **Cómo se asignan las clases:** `glass` = vidrio marrón, verde y blanco; `trash` = basura y restos orgánicos (van a la basura general); `other` = zapatos, ropa, pilas (no van a un contenedor de reciclaje domiciliario) y los objetos de ImageNet. De ImageNet se excluyeron las categorías que se parecen a residuos (botellas, latas, cartones, bolsas, libros, tazas).
 - **Duplicados entre fuentes:** el dataset de internet **incluye las fotos de TrashNet**, idénticas byte a byte (el 45 % de su carpeta de cartón, el 53 % de metal, el 57 % de papel y el 55 % de plástico). Se eliminan las copias exactas antes de dividir los datos; así el test de TrashNet no se filtra al entrenamiento.
@@ -57,7 +57,9 @@ El modelo se entrena con **tres fuentes** y el test se mide **por fuente**, para
 
 - **Reservado aparte** (no entra a train, val ni test): 30 zapatos y 40 fotos de 8 categorías de ImageNet que el modelo nunca ve (pizza, castillo, tractor, león, microondas, refrigerador, lavadora y aspiradora).
 - **Limitaciones de los datos:** las fotos de internet tienen etiquetas ruidosas y muchas casi duplicadas (solo se eliminan copias exactas); `trash` agrupa cosas muy distintas (basura de TrashNet, basura de internet y restos orgánicos); `other` no cubre todos los objetos posibles (por ejemplo, madera no está); gran parte de las fotos no corresponde a envases chilenos.
+- **Las pilas son un caso especial:** se agruparon en `other` porque no van a ningún contenedor domiciliario, pero sí son residuos (peligrosos) que deben llevarse a un punto de recolección especial. Por eso el mensaje «No parece un residuo» es impreciso para ellas.
 - Los datasets **no** están en este repositorio por su tamaño; se descargan desde los enlaces.
+- **Sobre las vistas previas en Hugging Face:** muestran solo las primeras filas, ordenadas por clase. En el dataset de internet las primeras son de la carpeta `battery` (pilas) y en ImageNet de la categoría 0 (un pez, la tenca), pero ambos contienen todas las clases que se listan arriba. De ImageNet solo se usaron 50 de las 1.000 categorías (lista en `CLASES_IN` del notebook).
 
 ## Modelo
 | Modelo | Accuracy (test) | Accuracy balanceada (test) |
