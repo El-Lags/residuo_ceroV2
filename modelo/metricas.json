@@ -1,0 +1,24 @@
+{
+  "accuracy": 0.9296610169491526,
+  "accuracy_balanceada": 0.9311166983597275,
+  "n_test": 1180,
+  "recall_por_clase": {
+    "cardboard": 0.9701492537313433,
+    "glass": 0.9424460431654677,
+    "metal": 0.9652173913043478,
+    "other": 0.8974358974358975,
+    "paper": 0.9620253164556962,
+    "plastic": 0.8923076923076924,
+    "trash": 0.888235294117647
+  },
+  "clip_accuracy": 0.5838983050847457,
+  "clip_accuracy_balanceada": 0.550931977071959,
+  "otro_zapatos_nunca_vistos": 1.0,
+  "otro_categorias_nunca_vistas": 0.625,
+  "accuracy_por_fuente": {
+    "trashnet": 0.9098143236074271,
+    "web": 0.9490861618798956,
+    "imagenet": 0.7297297297297297
+  },
+  "fallas_con_confianza_alta": 0.04067796610169491
+}
